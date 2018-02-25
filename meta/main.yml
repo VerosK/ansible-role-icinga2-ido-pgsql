@@ -1,0 +1,17 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: VerosK
+  description: Icinga2 - IDO add-on
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.0
+  platforms:
+    - name: EL
+      versions: [ 7 ]
+    - name: Debian
+      versions: [ jessie, stretch  ] 
+  galaxy_tags:
+    - web
+requirements:
+ - VerosK.icinga2
