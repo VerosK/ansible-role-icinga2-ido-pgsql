@@ -1,0 +1,23 @@
+
+- name: Install Icinga2 postgres IDO RPMs
+  yum:
+    name: '{{ item.package }}'
+    state: '{{ item.state|default("present") }}'
+  with_items: '{{ icinga2_ido_postgres_yum }}'
+  when: ansible_os_family == 'RedHat'
+
+- name: Install Icinga2 postgres IDO DEBs
+  apt:
+    name: '{{ item.package }}'
+    state: '{{ item.state|default("present") }}'
+  with_items: '{{ icinga2_ido_postgres_apt }}'
+  when: ansible_os_family == 'Debian'
+
+- include: setup-database.yml
+
+- name: Set-up IDO configuration
+  template:
+    src: 'ido_pgsql.conf.j2'
+    dest: '{{ icinga2_features_enabled_dir }}/ido-pgsql.conf'
+  notify:
+    - restart icinga2

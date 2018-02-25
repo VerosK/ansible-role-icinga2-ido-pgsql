@@ -1,0 +1,25 @@
+/** {{ ansible_managed }}
+ */
+
+library "db_ido_pgsql"
+
+object IdoPgsqlConnection "ido-pgsql" {
+  user = "{{ icinga2_ido_pg_user }}"
+  password = "{{ icinga2_ido_pg_password  }}"
+  host = "{{ icinga2_ido_pg_host }}"
+  database = "{{ icinga2_ido_pg_db }}"
+
+  cleanup = {
+  {% for k,v in icinga2_ido_cleanup.items() %}
+  {{ k }} = {{ v }}
+  {% endfor %}
+  }
+
+{% if icinga2_ido_pgsql_extra_config is defined %}
+/*
+ *  This file is Ansible managed
+ *
+ */
+{{ icinga2_ido_pgsql_extra_config  }}
+{% endif %}
+}

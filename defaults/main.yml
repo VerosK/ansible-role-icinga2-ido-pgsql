@@ -1,0 +1,14 @@
+
+#  These are usually set in VerosK.icinga2
+icinga2_ido_postgres_yum:
+ - { package: "icinga2-ido-pgsql" }
+
+icinga2_ido_postgres_apt:
+  - { package: "icinga2-ido-pgsql" }
+
+#  These are usually set in VerosK.icinga2
+#icinga2_ido_pg_host: localhost
+#icinga2_ido_pg_db: icinga2
+#icinga2_ido_pg_user: icinga2
+#icinga2_ido_pg_password: secret-password
+icinga2_ido_pg_host: '{{ ansible_host }}'
