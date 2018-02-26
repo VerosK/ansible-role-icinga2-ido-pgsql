@@ -1,6 +1,4 @@
 ---
-dependencies: []
-
 galaxy_info:
   author: VerosK
   description: Icinga2 - IDO add-on
@@ -13,5 +11,5 @@ galaxy_info:
       versions: [ jessie, stretch  ] 
   galaxy_tags:
     - web
-requirements:
- - VerosK.icinga2
+dependencies:
+ - role: VerosK.icinga2
