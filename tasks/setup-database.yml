@@ -15,7 +15,6 @@
   register: _ido_result
   changed_when: False
   failed_when: "'FATAL' in _ido_result.stderr"
-  ignore_errors: yes
 
 - name: Create IDO pg_database tables
   shell: psql {{ icinga2_ido_pg_db }} -f /usr/share/icinga2-ido-pgsql/schema/pgsql.sql
