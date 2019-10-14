@@ -25,7 +25,7 @@ with [`VerosK.icinga`][role] role.
 Role Variables
 --------------
 
- `icinga2_ido_pg_host`:  PostgreQQL login host
+ `icinga2_ido_pg_host`:  Postgresql login host
  
  `icinga2_ido_pg_user`, `icinga2_ido_pg_user`   
 
